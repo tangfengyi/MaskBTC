@@ -1,0 +1,151 @@
+{
+  "rules": [
+    {
+      "id": "TXN-001",
+      "name": "Unusually Large Transaction",
+      "description": "Detects transactions exceeding normal value thresholds",
+      "conditions": {
+        "transactionAmount": {
+          "gt": 50,
+          "currency": "ETH"
+        },
+        "accountAge": {
+          "lt": "7d"
+        }
+      },
+      "severity": "high",
+      "responseActions": [
+        {
+          "type": "alert",
+          "channels": ["email", "slack"],
+          "message": "Large transaction detected: {{transactionHash}}"
+        },
+        {
+          "type": "pauseContract",
+          "target": "{{contractAddress}}"
+        }
+      ]
+    },
+    {
+      "id": "TXN-002",
+      "name": "High Frequency Transactions",
+      "description": "Detects accounts making excessive transactions in short timeframes",
+      "conditions": {
+        "transactionCount": {
+          "gt": 20,
+          "timeWindow": "1h"
+        },
+        "totalVolume": {
+          "gt": 10,
+          "currency": "BTC"
+        }
+      },
+      "severity": "medium",
+      "responseActions": [
+        {
+          "type": "log",
+          "message": "High frequency activity detected from {{account}}"
+        },
+        {
+          "type": "notifyCompliance",
+          "priority": "normal"
+        }
+      ]
+    },
+    {
+      "id": "ACCT-001",
+      "name": "New Account with Multiple Contracts",
+      "description": "Flags new accounts deploying multiple smart contracts",
+      "conditions": {
+        "accountAge": {
+          "lt": "24h"
+        },
+        "contractDeployments": {
+          "gt": 3
+        }
+      },
+      "severity": "critical",
+      "responseActions": [
+        {
+          "type": "blockAccount",
+          "duration": "temporary"
+        },
+        {
+          "type": "escalateSecurity",
+          "team": "incident-response"
+        }
+      ]
+    },
+    {
+      "id": "GAS-001",
+      "name": "Abnormal Gas Usage Pattern",
+      "description": "Detects unusual gas consumption patterns",
+      "conditions": {
+        "averageGasPrice": {
+          "gt": 150,
+          "percentile": 99
+        },
+        "timeWindow": "6h"
+      },
+      "severity": "low",
+      "responseActions": [
+        {
+          "type": "monitor",
+          "period": "24h"
+        },
+        {
+          "type": "notifyDevOps",
+          "urgency": "low"
+        }
+      ]
+    },
+    {
+      "id": "NET-001",
+      "name": "Network Traffic Anomalies",
+      "description": "Detects unusual network traffic patterns",
+      "conditions": {
+        "incomingConnections": {
+          "gt": 500,
+          "timeWindow": "5m"
+        },
+        "uniqueIPs": {
+          "gt": 200
+        }
+      },
+      "severity": "high",
+      "responseActions": [
+        {
+          "type": "rateLimit",
+          "duration": "15m"
+        },
+        {
+          "type": "alert",
+          "channels": ["pagerduty"]
+        }
+      ]
+    }
+  ],
+  "globalSettings": {
+    "defaultResponseActions": [
+      {
+        "type": "logEvent"
+      },
+      {
+        "type": "createIncidentReport"
+      }
+    ],
+    "notificationChannels": {
+      "email": "security@maskly.com",
+      "slack": "#security-alerts",
+      "pagerduty": "PD_SERVICE_KEY"
+    },
+    "thresholdAdjustments": {
+      "weekdays": {
+        "multiplier": 1.2
+      },
+      "weekends": {
+        "multiplier": 0.8
+      }
+    }
+  }
+}

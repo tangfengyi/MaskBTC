@@ -1,0 +1,25 @@
+{
+  "detectors_to_exclude": [
+    "unused-return",
+    "constable-states",
+    "external-function",
+    "naming-convention",
+    "similar-names"
+  ],
+  "confidence_threshold": "Medium",
+  "severity_threshold": "Medium",
+  "filter_paths": [
+    "test",
+    "mock",
+    "scripts",
+    "tooling"
+  ],
+  "solc_version": "0.8.17",
+  "solc_arguments": "--optimize --optimize-runs 200",
+  "exclude_dependencies": false,
+  "show_ignored_findings": false,
+  "artifacts_directory": "./build/contracts",
+  "output_directory": "./security-reports/slither",
+  "analyze_all_contracts": true
+}
+

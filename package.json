@@ -1,0 +1,51 @@
+{
+  "name": "maskly",
+  "version": "1.0.0",
+  "description": "MASKLY - A decentralized application for cross-chain interactions and governance.",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:security": "jest --testPathPattern=security",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "@solana/web3.js": "^1.8.0",
+    "axios": "^0.27.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.1",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-ignition": "^0.15.9",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.9",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.12",
+    "@typechain/hardhat": "^9.1.0",
+    "chai": "4.3.7",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.1",
+    "hardhat": "^2.22.18",
+    "hardhat-gas-reporter": "^2.2.2",
+    "prettier": "^2.6.2",
+    "solidity-coverage": "^0.8.14"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

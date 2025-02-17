@@ -1,0 +1,22 @@
+{
+  "name": "dapp",
+  "version": "1.0.0",
+  "description": "Decentralized application (DApp) for MASKLY project",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "@web3-react/core": "^6.1.9",
+    "ethers": "^5.4.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0"
+  }
+}
+

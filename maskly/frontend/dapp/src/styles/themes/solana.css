@@ -1,0 +1,32 @@
+/* Solana Theme Styles */
+body {
+    background-color: #f4f4fc;
+    color: #333;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+}
+
+.button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+

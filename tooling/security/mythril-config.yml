@@ -1,0 +1,28 @@
+# Mythril Security Analysis Configuration
+execution_timeout: 600 # Increased timeout for complex contracts
+create_timeout: 15
+transaction_count: 5 # Increased transaction count for deeper analysis
+solver_timeout: 20000 # Increased solver timeout for more complex scenarios
+parallel_solving: true
+unconstrained_storage: false
+call_depth_limit: 5 # Increased call depth limit
+strategy: bfs
+modules:
+  - ether_thief
+  - suicide
+  - exceptions
+  - delegatecall
+  - reentrancy
+  - erc20
+  - erc721
+  - timestamp-dependence # Added new module for timestamp-based vulnerabilities
+  - tx-origin # Added new module for tx.origin misuse
+exclude:
+  - test # Exclude test directories
+  - mock # Exclude mock directories
+  - scripts # Exclude scripts directory
+  - tooling # Exclude tooling directory
+output:
+  json: ./security-reports/mythril/results.json
+  markdown: ./security-reports/mythril/report.md
+
