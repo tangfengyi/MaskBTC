@@ -1,15 +1,25 @@
+# 合并后的.gitignore内容
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
 # Environment variables
 .env
 .env.local
 .env.*.local
+.env.test
+.env.production
 
 # Build artifacts
 build/
 dist/
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+jspm_packages/
 
 # Mobile build outputs
 maskly/android/app/build/
@@ -26,15 +36,9 @@ maskly/frontend/app/ios/build/
 .DS_Store
 Thumbs.db
 
-# Logs and databases
-*.log
-*.sqlite
-
-# Test coverage
-coverage/
-
-# Production secrets
-secrets.json
+# Security reports
+security-reports/
+security/audit/reports/
 
 # Compiled contracts
 maskly/blockchain/contracts/build/
@@ -46,10 +50,6 @@ types/
 
 # Deployment artifacts
 deployment-artifacts/
-
-# Security reports
-security-reports/
-security/audit/reports/
 
 # Temporary files
 tmp/
@@ -64,6 +64,7 @@ docs/_static/
 # Docker related
 .dockerenv
 docker-compose.override.yml
+docker-compose.dev.yml
 
 # CI/CD cache
 .cache/
@@ -73,5 +74,34 @@ docker-compose.override.yml
 # Multi-project package locks
 **/package-lock.json
 
-# Docker development files
-docker-compose.dev.yml
+# 其他通用规则
+*.lcov
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+typings/
+*.tsbuildinfo
+.npm
+.eslintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+*.tgz
+.yarn-integrity
+.parcel-cache
+.next
+.nuxt
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
